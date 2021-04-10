@@ -9,7 +9,14 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
-
+    #----------------------------------------------------------------
+    #  リレーションの設定
+    #----------------------------------------------------------------
+    //ユーザーは複数の記事を保持する。
+    public function articles()
+    {
+        return $this->hasMany('App\Article');
+    }
     /**
      * The attributes that are mass assignable.
      *
